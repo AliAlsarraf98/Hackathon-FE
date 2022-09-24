@@ -4,10 +4,10 @@ import UINavbar from "../../ui/navbar";
 import navLogo from "../../public/images/navLogo.ico";
 import Modal from "../modal";
 
-const Navbar = () => {
-  const navLinks = ["HOME", "ABOUT", "CONTACT", "Income"];
+const Navbar = ({ isLogin, logout, setIsLogin }) => {
+  const navLinks = ["HOME", "MY COMPANY"];
   const [showSignupModal, setShowSignupModal] = useState(false);
-  const [isLogin, setIsLogin] = useState({ status: false, canLogin: true });
+  // const [isLogin, setIsLogin] = useState({ status: false, canLogin: true });
 
   const togleSignup = () => {
     setShowSignupModal(!showSignupModal);
@@ -22,10 +22,10 @@ const Navbar = () => {
     }
   }, [showSignupModal]);
 
-  const logout = () => {
-    setIsLogin({ ...isLogin, status: false, canLogin: false });
-    localStorage.removeItem("token");
-  };
+  // const logout = () => {
+  //   setIsLogin({ ...isLogin, status: false, canLogin: false });
+  //   localStorage.removeItem("token");
+  // };
 
   return (
     <>

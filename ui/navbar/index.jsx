@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Wraper from "./wraper";
 
 import Links from "./Links";
@@ -28,9 +28,9 @@ const UINavbar = ({
       <Link
         key={index}
         onClick={() => {
-          handleNav(link.toLowerCase());
+          handleNav(link.split(" ").join("-").toLowerCase());
         }}
-        active={isActive[link.toLowerCase()]}
+        active={isActive[link.split(" ").join("-").toLowerCase()]}
       >
         {link}
       </Link>
@@ -50,9 +50,6 @@ const UINavbar = ({
       ) : (
         <NavButton onClick={togleSignup}>Signin</NavButton>
       )}
-      <NavButton>
-        <ShoppingCartSVG />
-      </NavButton>
     </Wraper>
   );
 };
